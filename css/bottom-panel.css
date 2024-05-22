@@ -1,0 +1,17 @@
+#bottom-panel {
+    z-index: 101;
+    position: fixed;
+    bottom: 0;
+    width: 320px;
+    left: 50%;
+    margin-left: -160px;
+    background: white;
+}
+#bottom-panel-header {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0.5 auto;
+    text-align: center;
+    font-weight: normal;
+    font-style: italic;
+}

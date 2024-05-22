@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>3D Mines</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/ui.css">
+        <link rel="icon" type="image/x-icon" href="/css/images/favicon.ico">
+    </head>
+    <body>
+        <div id="settings">
+            <button id="close-settings">&times;</button>
+            <div>
+                <label>Rows: <input type="number" min="3"  step="1" id="x"></label>
+                <label>Columns: <input type="number" min="3" step="1" id="y"></label>
+                <label>Layers: <input type="number" min="3" step="1" id="z"></label>
+                <label>Mines: <input type="number" min="3" step="1" id="m"></label>
+                <button class="button" id="new-game">New</button>
+            </div>
+<!--            <div>-->
+<!--                Popular games:-->
+<!--                <ol id="popular-games"></ol>-->
+<!--            </div>-->
+        </div>
+        <input type="hidden" id="csrf" value="4fb4bdca96">
+        <header id="header">
+            <div id="timer">000</div>
+            <button id="reset">reset</button>
+            <input type="checkbox" id="flags" class="hidden">
+            <label for="flags" class="button">flags</label>
+            <a href="#" id="score" class="button hidden">view score</a>
+            <input type="checkbox" id="pause" class="hidden">
+            <label for="pause" class="button">Pause</label>
+            <button class="button" id="help">?</button>
+            <input type="hidden" value="" id="name" tabindex="-1">
+            <div id="mines-left">000</div>
+        </header>
+        <div id="main"></div>
+        <div style="display: none;" id="help-message">
+            <ul><li>Click the left mouse button to reveal a block</li>
+                <li>Click the right mouse button to place a flag</li>
+                <li>Once flagged, blocks cannot be clicked again.
+                    <ul>
+                        <li>If you want to remove a flag, hold the shift key to be able to highlight it</li>
+                    </ul>
+                </li>
+                <li>Drag the left mouse button to rotate the view</li>
+                <li>Use the right mouse button to pan the view</li>
+                <li>Use the scroll to zoom in and out</li>
+                <li>Double click to toggle fullscreen</li>
+                <li>Click on the flags button to use the left mouse to place flags, instead of revealing</li>
+                <li><a href="https://github.com/RusiPapazov/mines3d/issues" target="_blank">If you found issues or have a suggestion, please don't hesitate to submit here</a></li>
+            </ul>
+        </div>
+        <div id="board"></div>
+        <script src="js/vendor/Detector.js"></script>
+        <script src="js/vendor/require.js" data-main="js/app"></script>
+    </body>
+</html>

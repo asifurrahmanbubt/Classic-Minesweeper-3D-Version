@@ -1,0 +1,189 @@
+:root {
+    --smiley-size: 52px;
+    --panel-padding: 1em;
+    --panel-border: 4px;
+    --panel-background: #C0C0C0;
+    --shadow: 0 calc(var(--panel-border) * -1) 0 0 #FFFFFF,
+        inset 0 calc(var(--panel-border) * -1) 0 0 #FFFFFF,
+        inset calc(var(--panel-border) * -1) 0 0 0 #FFFFFF,
+        calc(var(--panel-border) * -1) 0 0 0 #FFFFFF,
+        var(--panel-border) 0 0 0 #808080,
+        inset var(--panel-border) 0 0 0 #808080,
+        inset 0 var(--panel-border) 0 0 #808080,
+        0 var(--panel-border) 0 0 #808080;
+    --side-menu-width: 140px;
+    --side-menu-handle: 14px;
+}
+@font-face {
+    font-family: 'digital';
+    src: url('digital.ttf');
+    src: url('digital.ttf') format('ttf'), url('digital.ttf')  format('truetype');
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: darkgray;
+    position: relative;
+}
+
+#settings {
+    transition: right 0.2s, z-index 0.2s;
+    cursor: pointer;
+    background: var(--panel-background);
+    position: fixed;
+    right: calc(var(--side-menu-handle) - var(--side-menu-width));
+    top: var(--panel-padding);
+    bottom: var(--panel-border);
+    width: var(--side-menu-width);
+    padding: calc(2 * var(--panel-padding)) var(--panel-padding) var(--panel-padding) var(--panel-padding);
+    z-index: 1;
+    box-shadow: var(--shadow);
+}
+#settings.visible {
+    transition: right 0.2s, z-index 0.2s;
+    right: 0;
+    z-index: 3;
+    cursor: default;
+}
+
+#close-settings {
+    cursor: pointer;
+    position: absolute;
+    border: none;
+    background: none;
+    top: var(--panel-padding);
+    right: var(--panel-padding);
+}
+
+#settings input[type="number"] {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.button {
+    box-shadow: inset 0 1px 0 0 #fff;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+    background: -moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background: -webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background: -o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background: -ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+    background-color: #ededed;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #777;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0 24px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+    height: var(--smiley-size);
+    line-height: var(--smiley-size);
+}
+input:checked + .button,
+.button:hover,
+.button.active {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+    background: -moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background: -webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background: -o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background: -ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+    background-color: #dfdfdf;
+}
+input:checked + .button,
+.button:active,
+.button.active {
+    position: relative;
+    top: 3px;
+}
+.hidden {
+    position: absolute;
+    left: -999em;
+}
+
+#header {
+    position: fixed;
+    right: var(--panel-border);
+    top: var(--panel-border);
+    left: var(--panel-border);
+    padding: var(--panel-padding);
+    background: var(--panel-background);
+    border: var(--panel-border) solid var(--panel-background);
+    z-index: 2;
+    -webkit-box-shadow: var(--shadow);
+    box-shadow: var(--shadow);
+    vertical-align: middle;
+    text-align: center;
+}
+
+#timer, #mines-left {
+    float: left;
+    font-family: 'digital', sans-serif;
+    font-size: 2em;
+    background: black;
+    color: red;
+}
+#mines-left {
+    float: right;
+}
+
+#author {
+    position: absolute;
+    bottom: 0.5em;
+    display: block;
+    text-align: center;
+    left: 0;
+    right: 0;
+    color: black;
+    text-decoration: underline;
+}
+
+#popular {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#name {
+    text-align: center;
+    border: 0;
+}
+#reset {
+    text-indent: -9999em;
+    height: var(--smiley-size);
+    width: var(--smiley-size);
+    background-position: calc(-1px + var(--smiley-size)) -1px;
+    background-size: calc(var(--smiley-size) * 4) calc(var(--smiley-size) - 1px);
+    background-image: url("./images/smileys.jpg");
+}
+
+#reset.shock {
+    background-position: calc(-1px + var(--smiley-size) * 2) -1px;
+}
+
+#reset.dead {
+    background-position: calc(-1px + var(--smiley-size) * 3) -1px;
+}
+
+#reset.sunglasses {
+    background-position: calc(-1px + var(--smiley-size) * 4) -1px;
+}
+
+@media all and (max-width: 699px) {
+  #header {
+    left: 0;
+    right: 0;
+    padding: 0;
+  }
+}
