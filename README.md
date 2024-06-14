@@ -25,7 +25,7 @@ To run Mines3D locally, you need:
 1. **Clone the Repository**:
 
     ```bash
-    git clone https://github.com/yourusername/mines3d.git
+    git clone https://github.com/asifurrahmanbubt/Classic-Minesweeper-3D-Version
     cd mines3d
     ```
 
